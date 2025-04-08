@@ -32,6 +32,13 @@ form.addEventListener('submit', function (e) {
 });
 
 function renderTasks() {
+  const sortOption = sortSelect.value;
+  if (sortOption === 'created-desc') {
+    tasks.sort((a, b) => b.createdAt - a.createdAt);
+  } else if (sortOption === 'oldest') {
+    tasks.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+  }
+
   incompleteList.innerHTML = '';
   completeList.innerHTML = '';
 
@@ -103,7 +110,10 @@ function loadTasks() {
   const savedTasks = localStorage.getItem('tasks');
 
   if (savedTasks) {
-    tasks = JSON.parse(savedTasks);
+    tasks = JSON.parse(savedTasks).map((task) => ({
+      ...task,
+      createdAt: new Date(task.createdAt),
+    }));
   }
 }
 
@@ -114,6 +124,10 @@ clearAllButton.addEventListener('click', () => {
     renderTasks();
   }
 });
+
+const sortSelect = document.querySelector('#sort');
+
+sortSelect.addEventListener('change', renderTasks);
 
 loadTasks();
 renderTasks();
