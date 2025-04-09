@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자기소개 폼</title>
+  </head>
+  <body>
+    <h1>나를 소개합니다.</h1>
+
+    <form id="intro-form">
+      <label>
+        이름:
+        <input type="text" name="name" required />
+      </label>
+      <br /><br />
+      <label>
+        이메일:
+        <input type="email" name="email" />
+      </label>
+      <br /><br />
+
+      <label>
+        비밀번호:
+        <input type="password" name="password" />
+      </label>
+      <br /><br />
+
+      <label>
+        성별:
+        <input type="radio" name="gender" value="남성" /> 남성
+        <input type="radio" name="gender" value="여성" /> 여성
+      </label>
+      <br /><br />
+
+      <label>
+        관심사:
+        <input type="checkbox" name="interest" value="코딩" /> 코딩
+        <input type="checkbox" name="interest" value="디자인" /> 디자인
+        <input type="checkbox" name="interest" value="게임" /> 게임
+      </label>
+      <br /><br />
+
+      <label>
+        자기소개:
+        <br />
+        <textarea
+          name="bio"
+          rows="4"
+          cols="30"
+          placeholder="자유롭게 작성해보세요~"
+        ></textarea>
+      </label>
+      <br /><br />
+
+      <label>
+        국가:
+        <select name="country">
+          <option value="한국">한국</option>
+          <option value="일본">일본</option>
+          <option value="미국">미국</option>
+        </select>
+      </label>
+      <br /><br />
+
+      <button type="submit">제출</button>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
